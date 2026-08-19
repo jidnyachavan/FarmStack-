@@ -9,7 +9,7 @@ import YieldPrediction from "./pages/YieldPrediction";
 import HarvestPrediction from "./pages/HarvestPrediction";
 import MarketPrices from "./pages/MarketPrices";
 import PriceForecast from "./pages/PriceForecast";
-
+import Chatbot from "./pages/Chatbot";
 
 function App() {
   return (
@@ -46,6 +46,11 @@ function App() {
 <Route
   path="/price-forecast"
   element={<PriceForecast />}
+/>
+
+<Route
+  path="/chatbot"
+  element={<Chatbot />}
 />
       </Routes>
 

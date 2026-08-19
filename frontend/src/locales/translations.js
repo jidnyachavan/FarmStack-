@@ -120,7 +120,12 @@ priceForecast: {
   title: "Price Forecast",
   subtitle: "Understand future crop price trends.",
 },
-
+chatbot: {
+  title: "AI Farming Assistant",
+  subtitle: "Ask questions and get intelligent farming insights.",
+  placeholder: "Ask your farming question...",
+  send: "Send",
+},
     common: {
       loading: "Loading...",
       submit: "Submit",
@@ -251,6 +256,13 @@ market: {
 priceForecast: {
   title: "किंमत अंदाज",
   subtitle: "भविष्यातील पिकांच्या किंमतींचे ट्रेंड समजून घ्या.",
+},
+
+chatbot: {
+  title: "AI शेती सहाय्यक",
+  subtitle: "प्रश्न विचारा आणि बुद्धिमान शेतीविषयक माहिती मिळवा.",
+  placeholder: "तुमचा शेतीविषयक प्रश्न विचारा...",
+  send: "पाठवा",
 },
     common: {
       loading: "लोड होत आहे...",
@@ -384,6 +396,12 @@ priceForecast: {
   subtitle: "भविष्य में फसल की कीमतों के रुझान को समझें।",
 },
 
+chatbot: {
+  title: "AI कृषि सहायक",
+  subtitle: "प्रश्न पूछें और बुद्धिमान कृषि जानकारी प्राप्त करें।",
+  placeholder: "अपना कृषि संबंधी प्रश्न पूछें...",
+  send: "भेजें",
+},
     common: {
       loading: "लोड हो रहा है...",
       submit: "जमा करें",

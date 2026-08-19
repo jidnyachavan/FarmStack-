@@ -12,6 +12,16 @@ dist
 dist-ssr
 *.local
 
+
+# ML datasets
+ml/price_prediction/data/
+
+# CatBoost logs
+catboost_info/
+
+# Python cache
+__pycache__/
+*.pyc
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +32,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# ML datasets
+ml/price_prediction/data/archive.zip
+ml/price_prediction/data/parquet/
+ml/price_prediction/data/*.parquet
+
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.venv/
