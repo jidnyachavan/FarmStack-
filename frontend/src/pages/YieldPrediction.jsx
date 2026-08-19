@@ -1,15 +1,15 @@
 import { useLanguage } from "../context/LanguageContext";
 
-function HarvestPrediction() {
+function YieldPrediction() {
   const { t } = useLanguage();
 
   return (
     <div style={{ padding: "50px" }}>
-      <h1>{t.harvest.title}</h1>
+      <h1>{t.yield.title}</h1>
 
-      <p>{t.harvest.subtitle}</p>
+      <p>{t.yield.subtitle}</p>
     </div>
   );
 }
 
-export default HarvestPrediction;
+export default YieldPrediction;

@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 function CropRecommendation() {
+  const { t } = useLanguage();
+
   const [formData, setFormData] = useState({
     nitrogen: "",
     phosphorus: "",
@@ -23,12 +26,10 @@ function CropRecommendation() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Temporary frontend result
     setRecommendation({
       crop: "Rice",
       suitability: 94,
-      reason:
-        "The soil nutrients and environmental conditions are highly suitable for rice cultivation.",
+      reason: t.crop.reason,
     });
   };
 
@@ -36,18 +37,20 @@ function CropRecommendation() {
     <div className="recommendation-page">
 
       <div className="recommendation-header">
-        <p className="dashboard-label">AI CROP INTELLIGENCE</p>
+
+        <p className="dashboard-label">
+          {t.crop.label}
+        </p>
 
         <h1>
-          Find the right crop
-          <span> for your farm.</span>
+          {t.crop.title}
+          <span>{t.crop.titleHighlight}</span>
         </h1>
 
         <p>
-          Enter your soil and environmental conditions.
-          FarmStack will analyze the data and recommend
-          suitable crops for your farm.
+          {t.crop.description}
         </p>
+
       </div>
 
       <div className="recommendation-container">
@@ -58,16 +61,18 @@ function CropRecommendation() {
         >
 
           <div className="form-section">
-            <h2>🌱 Soil Information</h2>
+
+            <h2>{t.crop.soilInfo}</h2>
 
             <div className="form-grid">
 
               <div className="form-group">
-                <label>Nitrogen (N)</label>
+                <label>{t.crop.nitrogen}</label>
+
                 <input
                   type="number"
                   name="nitrogen"
-                  placeholder="e.g. 90"
+                  placeholder={t.crop.placeholderNitrogen}
                   value={formData.nitrogen}
                   onChange={handleChange}
                   required
@@ -75,11 +80,12 @@ function CropRecommendation() {
               </div>
 
               <div className="form-group">
-                <label>Phosphorus (P)</label>
+                <label>{t.crop.phosphorus}</label>
+
                 <input
                   type="number"
                   name="phosphorus"
-                  placeholder="e.g. 40"
+                  placeholder={t.crop.placeholderPhosphorus}
                   value={formData.phosphorus}
                   onChange={handleChange}
                   required
@@ -87,11 +93,12 @@ function CropRecommendation() {
               </div>
 
               <div className="form-group">
-                <label>Potassium (K)</label>
+                <label>{t.crop.potassium}</label>
+
                 <input
                   type="number"
                   name="potassium"
-                  placeholder="e.g. 40"
+                  placeholder={t.crop.placeholderPotassium}
                   value={formData.potassium}
                   onChange={handleChange}
                   required
@@ -99,12 +106,13 @@ function CropRecommendation() {
               </div>
 
               <div className="form-group">
-                <label>Soil pH</label>
+                <label>{t.crop.soilPh}</label>
+
                 <input
                   type="number"
                   step="0.1"
                   name="ph"
-                  placeholder="e.g. 6.5"
+                  placeholder={t.crop.placeholderPh}
                   value={formData.ph}
                   onChange={handleChange}
                   required
@@ -115,17 +123,19 @@ function CropRecommendation() {
           </div>
 
           <div className="form-section">
-            <h2>☀️ Environmental Conditions</h2>
+
+            <h2>{t.crop.environmental}</h2>
 
             <div className="form-grid">
 
               <div className="form-group">
-                <label>Temperature (°C)</label>
+                <label>{t.crop.temperature}</label>
+
                 <input
                   type="number"
                   step="0.1"
                   name="temperature"
-                  placeholder="e.g. 25"
+                  placeholder={t.crop.placeholderTemperature}
                   value={formData.temperature}
                   onChange={handleChange}
                   required
@@ -133,12 +143,13 @@ function CropRecommendation() {
               </div>
 
               <div className="form-group">
-                <label>Humidity (%)</label>
+                <label>{t.crop.humidity}</label>
+
                 <input
                   type="number"
                   step="0.1"
                   name="humidity"
-                  placeholder="e.g. 70"
+                  placeholder={t.crop.placeholderHumidity}
                   value={formData.humidity}
                   onChange={handleChange}
                   required
@@ -146,12 +157,13 @@ function CropRecommendation() {
               </div>
 
               <div className="form-group">
-                <label>Rainfall (mm)</label>
+                <label>{t.crop.rainfall}</label>
+
                 <input
                   type="number"
                   step="0.1"
                   name="rainfall"
-                  placeholder="e.g. 200"
+                  placeholder={t.crop.placeholderRainfall}
                   value={formData.rainfall}
                   onChange={handleChange}
                   required
@@ -165,7 +177,7 @@ function CropRecommendation() {
             type="submit"
             className="recommend-button"
           >
-            Analyze My Farm →
+            {t.crop.analyze}
           </button>
 
         </form>
@@ -173,38 +185,40 @@ function CropRecommendation() {
         <div className="recommendation-info">
 
           {!recommendation ? (
+
             <div className="info-card">
 
               <div className="info-icon">🤖</div>
 
-              <h3>AI Farm Analysis</h3>
+              <h3>{t.crop.aiAnalysis}</h3>
 
               <p>
-                Enter your farm conditions and FarmStack
-                will analyze them to find suitable crops.
+                {t.crop.aiDescription}
               </p>
 
               <div className="info-step">
                 <span>01</span>
-                <p>Enter your farm conditions</p>
+                <p>{t.crop.step1}</p>
               </div>
 
               <div className="info-step">
                 <span>02</span>
-                <p>AI analyzes the data</p>
+                <p>{t.crop.step2}</p>
               </div>
 
               <div className="info-step">
                 <span>03</span>
-                <p>Receive crop recommendations</p>
+                <p>{t.crop.step3}</p>
               </div>
 
             </div>
+
           ) : (
+
             <div className="result-card">
 
               <p className="result-label">
-                FARMSTACK RECOMMENDATION
+                {t.crop.recommendation}
               </p>
 
               <div className="result-icon">
@@ -216,19 +230,25 @@ function CropRecommendation() {
               </h2>
 
               <div className="suitability">
-                <span>Suitability</span>
+
+                <span>
+                  {t.crop.suitability}
+                </span>
 
                 <strong>
                   {recommendation.suitability}%
                 </strong>
+
               </div>
 
               <div className="progress-bar">
+
                 <div
                   style={{
                     width: `${recommendation.suitability}%`,
                   }}
                 ></div>
+
               </div>
 
               <p className="result-reason">
@@ -239,10 +259,11 @@ function CropRecommendation() {
                 className="try-again-button"
                 onClick={() => setRecommendation(null)}
               >
-                Analyze Again
+                {t.crop.analyzeAgain}
               </button>
 
             </div>
+
           )}
 
         </div>

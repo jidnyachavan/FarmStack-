@@ -1,41 +1,44 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 function Dashboard() {
+  const { t } = useLanguage();
+
   const features = [
     {
       icon: "🌱",
-      title: "Crop Recommendation",
-      description: "Find the most suitable crop based on your farm conditions.",
+      title: t.dashboard.cropRecommendation,
+      description: t.dashboard.cropDescription,
       path: "/crop-recommendation",
     },
     {
       icon: "📊",
-      title: "Yield Prediction",
-      description: "Predict the expected yield of your selected crop.",
+      title: t.dashboard.yieldPrediction,
+      description: t.dashboard.yieldDescription,
       path: "/yield-prediction",
     },
     {
       icon: "🌾",
-      title: "Harvest Prediction",
-      description: "Estimate the ideal time to harvest your crop.",
+      title: t.dashboard.harvestPrediction,
+      description: t.dashboard.harvestDescription,
       path: "/harvest-prediction",
     },
     {
       icon: "💰",
-      title: "Market Prices",
-      description: "Explore current agricultural market prices.",
+      title: t.dashboard.marketPrices,
+      description: t.dashboard.marketDescription,
       path: "/market-prices",
     },
     {
       icon: "📈",
-      title: "Price Forecast",
-      description: "Understand future crop price trends.",
+      title: t.dashboard.priceForecast,
+      description: t.dashboard.priceDescription,
       path: "/price-forecast",
     },
     {
       icon: "🤖",
-      title: "AI Farming Assistant",
-      description: "Ask questions and get intelligent farming insights.",
+      title: t.dashboard.aiAssistant,
+      description: t.dashboard.aiDescription,
       path: "/chatbot",
     },
   ];
@@ -45,16 +48,17 @@ function Dashboard() {
 
       <section className="dashboard-header">
         <div>
-          <p className="dashboard-label">FARMSTACK INTELLIGENCE</p>
+          <p className="dashboard-label">
+            {t.dashboard.label}
+          </p>
 
           <h1>
-            Welcome to your
-            <span> Farm Dashboard</span>
+            {t.dashboard.title}
+            <span>{t.dashboard.titleHighlight}</span>
           </h1>
 
           <p className="dashboard-description">
-            Make smarter agricultural decisions using AI-powered
-            recommendations, predictions and market intelligence.
+            {t.dashboard.description}
           </p>
         </div>
       </section>
@@ -63,9 +67,10 @@ function Dashboard() {
 
         <div className="section-heading">
           <div>
-            <h2>What would you like to do?</h2>
+            <h2>{t.dashboard.heading}</h2>
+
             <p>
-              Choose an intelligent tool to get started.
+              {t.dashboard.subheading}
             </p>
           </div>
         </div>
@@ -87,7 +92,7 @@ function Dashboard() {
               <p>{feature.description}</p>
 
               <span className="feature-arrow">
-                Explore →
+                {t.dashboard.explore} →
               </span>
             </Link>
           ))}

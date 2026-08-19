@@ -1,17 +1,15 @@
-/* NAVBAR */
+/* =========================
+   NAVBAR
+========================= */
 
 .navbar {
   height: 76px;
-  width: 100%;
   padding: 0 7%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid #e4ebe4;
-
   position: sticky;
   top: 0;
   z-index: 100;
@@ -20,29 +18,27 @@
 .navbar-logo {
   display: flex;
   align-items: center;
-  gap: 9px;
-
-  font-size: 23px;
+  gap: 8px;
+  text-decoration: none;
+  font-size: 22px;
   font-weight: 700;
-
-  color: #1d321f;
+  color: #3d7d45;
 }
 
 .logo-icon {
-  font-size: 26px;
+  font-size: 25px;
 }
 
 .navbar-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 28px;
 }
 
 .navbar-links a {
-  color: #59645b;
-  font-size: 14px;
-  font-weight: 500;
-
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
   transition: 0.2s ease;
 }
 
@@ -50,24 +46,86 @@
   color: #3d7d45;
 }
 
-.navbar-button {
-  padding: 11px 19px;
+/* =========================
+   LANGUAGE DROPDOWN
+========================= */
 
+.language-dropdown {
+  position: relative;
+}
+
+.language-button {
+  border: 1px solid #dce5dc;
+  background: white;
+  color: #444;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.language-button:hover {
+  border-color: #3d7d45;
+  color: #3d7d45;
+}
+
+.language-menu {
+  display: none;
+  position: absolute;
+  top: 42px;
+  right: 0;
+  width: 130px;
+  max-height: 120px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #e0e7e0;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+}
+
+/* Show dropdown on hover */
+.language-dropdown:hover .language-menu {
+  display: block;
+}
+
+.language-menu button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  text-align: left;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.language-menu button:hover {
+  background: #f1f7f1;
+  color: #3d7d45;
+}
+
+.language-menu button.selected {
   background: #3d7d45;
   color: white;
+}
 
+/* =========================
+   GET STARTED BUTTON
+========================= */
+
+.navbar-button {
+  background: #3d7d45 !important;
+  color: white !important;
+  padding: 10px 18px;
   border-radius: 8px;
-
-  font-size: 14px;
   font-weight: 600;
-
-  transition: 0.2s ease;
 }
 
 .navbar-button:hover {
-  background: #326938;
-  transform: translateY(-1px);
+  background: #326839 !important;
 }
+
 
 * {
   margin: 0;

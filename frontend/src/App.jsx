@@ -5,6 +5,11 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import CropRecommendation from "./pages/CropRecommendation";
+import YieldPrediction from "./pages/YieldPrediction";
+import HarvestPrediction from "./pages/HarvestPrediction";
+import MarketPrices from "./pages/MarketPrices";
+import PriceForecast from "./pages/PriceForecast";
+
 
 function App() {
   return (
@@ -20,6 +25,27 @@ function App() {
         <Route
   path="/crop-recommendation"
   element={<CropRecommendation />}
+/>
+
+<Route
+  path="/yield-prediction"
+  element={<YieldPrediction />}
+/>
+
+<Route
+  path="/harvest-prediction"
+  element={<HarvestPrediction />}
+
+/>
+
+<Route
+  path="/market-prices"
+  element={<MarketPrices />}
+/>
+
+<Route
+  path="/price-forecast"
+  element={<PriceForecast />}
 />
       </Routes>
 

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 function Navbar() {
+  const { language, setLanguage, t } = useLanguage();
+
   return (
     <nav className="navbar">
 
@@ -10,20 +13,67 @@ function Navbar() {
       </Link>
 
       <div className="navbar-links">
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
+
+        <Link to="/">
+          {t.navbar.home}
+        </Link>
+
+        <Link to="/dashboard">
+          {t.navbar.dashboard}
+        </Link>
+
         <Link to="/crop-recommendation">
-          Crop Recommendation
+          {t.navbar.cropRecommendation}
         </Link>
+
         <Link to="/market-prices">
-          Market Prices
+          {t.navbar.marketPrices}
         </Link>
+
+        {/* LANGUAGE */}
+        <div className="language-dropdown">
+
+          <button className="language-button">
+            🌐{" "}
+            {language === "english"
+              ? "English"
+              : language === "marathi"
+              ? "मराठी"
+              : "हिंदी"}{" "}
+            ▾
+          </button>
+
+          <div className="language-menu">
+
+            <button
+              className={language === "english" ? "selected" : ""}
+              onClick={() => setLanguage("english")}
+            >
+              ✓ English
+            </button>
+
+            <button
+              className={language === "marathi" ? "selected" : ""}
+              onClick={() => setLanguage("marathi")}
+            >
+              मराठी
+            </button>
+
+            <button
+              className={language === "hindi" ? "selected" : ""}
+              onClick={() => setLanguage("hindi")}
+            >
+              हिंदी
+            </button>
+
+          </div>
+        </div>
+
+        <Link to="/dashboard" className="navbar-button">
+          {t.navbar.getStarted}
+        </Link>
+
       </div>
-
-      <Link to="/dashboard" className="navbar-button">
-        Get Started
-      </Link>
-
     </nav>
   );
 }

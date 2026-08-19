@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext";
 
 function Home() {
+  const { t } = useLanguage();
+
   return (
     <div className="home-page">
 
@@ -9,29 +12,27 @@ function Home() {
         <div className="hero-content">
 
           <div className="hero-badge">
-            🌱 AI-POWERED AGRICULTURE
+            🌱 {t.home.badge}
           </div>
 
           <h1>
-            Smarter Farming.
+            {t.home.title1}
             <br />
-            <span>Better Decisions.</span>
+            <span>{t.home.title2}</span>
           </h1>
 
           <p>
-            FarmStack brings AI-powered recommendations, predictions,
-            market insights and intelligent tools together to help
-            farmers make better agricultural decisions.
+            {t.home.description}
           </p>
 
           <div className="hero-buttons">
 
             <Link to="/dashboard" className="primary-button">
-              Get Started →
+              {t.home.getStarted} →
             </Link>
 
             <Link to="/dashboard" className="secondary-button">
-              Explore FarmStack
+              {t.home.explore}
             </Link>
 
           </div>
@@ -41,19 +42,20 @@ function Home() {
         <div className="hero-visual">
 
           <div className="ai-card">
+
             <div className="ai-icon">🌾</div>
 
-            <h3>AI Farming Intelligence</h3>
+            <h3>{t.home.aiTitle}</h3>
 
             <p>
-              Data-driven insights for smarter crop planning,
-              prediction and market decisions.
+              {t.home.aiDescription}
             </p>
 
             <div className="ai-status">
               <span></span>
-              AI System Active
+              {t.home.aiStatus}
             </div>
+
           </div>
 
         </div>
