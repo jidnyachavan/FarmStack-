@@ -22,7 +22,11 @@ class PriceRequest(BaseModel):
 
 @app.get("/")
 def home():
-    return {"message": "FarmStack Price Prediction API is running"}
+    return {"message": "FarmStack Price Prediction API is running",
+            "endpoints": [
+            "/predict-price",
+            "/predict-yield"
+        ]}
 
 
 @app.post("/predict")
@@ -59,4 +63,44 @@ def predict_price(data: PriceRequest):
         "predicted_modal_price": round(float(prediction), 2),
         "unit": "INR/quintal",
         "price_per_kg": round(float(prediction) / 100, 2)
+    }
+
+
+# YIELD PREDICTION
+
+@app.post("/predict-yield")
+def predict_yield(data: YieldRequest):
+
+    # Create dataframe
+    input_data = pd.DataFrame([{
+        "Crop": data.Crop,
+        "Crop_Year": data.Crop_Year,
+        "Season": data.Season,
+        "State": data.State,
+        "Area": data.Area,
+        "Annual_Rainfall": data.Annual_Rainfall,
+        "Fertilizer": data.Fertilizer,
+        "Pesticide": data.Pesticide
+    }])
+
+    # Create the same features used during model training
+    input_data["Fertilizer_per_Area"] = (
+        input_data["Fertilizer"] /
+        input_data["Area"].replace(0, 1)
+    )
+
+    input_data["Pesticide_per_Area"] = (
+        input_data["Pesticide"] /
+        input_data["Area"].replace(0, 1)
+    )
+
+    # Prediction
+    prediction = yield_model.predict(input_data)[0]
+
+    # Prevent negative predictions
+    prediction = max(0, prediction)
+
+    return {
+        "predicted_yield": round(float(prediction), 2),
+        "unit": "dataset yield unit"
     }
