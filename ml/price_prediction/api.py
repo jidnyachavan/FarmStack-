@@ -10,6 +10,9 @@ MODEL_FILE = "ml/price_prediction/models/price_prediction_model.cbm"
 model = CatBoostRegressor()
 model.load_model(MODEL_FILE)
 
+YIELD_MODEL_FILE = "ml/price_prediction/models/yield_prediction_model.pkl"
+
+yield_model = joblib.load(YIELD_MODEL_FILE)
 
 class PriceRequest(BaseModel):
     commodity: str
@@ -19,7 +22,16 @@ class PriceRequest(BaseModel):
     variety: str
     arrival_date: str
 
-
+class YieldRequest(BaseModel):
+    Crop: str
+    Crop_Year: int
+    Season: str
+    State: str
+    Area: float
+    Annual_Rainfall: float
+    Fertilizer: float
+    Pesticide: float
+    
 @app.get("/")
 def home():
     return {"message": "FarmStack Price Prediction API is running",
@@ -29,7 +41,7 @@ def home():
         ]}
 
 
-@app.post("/predict")
+@app.post("/predict-price")
 def predict_price(data: PriceRequest):
 
     date = pd.to_datetime(data.arrival_date)
