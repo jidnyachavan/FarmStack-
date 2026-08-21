@@ -18,11 +18,11 @@ function Dashboard() {
       path: "/yield-prediction",
     },
     {
-      icon: "🌾",
-      title: t.dashboard.harvestPrediction,
-      description: t.dashboard.harvestDescription,
-      path: "/harvest-prediction",
-    },
+  icon: "🌾",
+  title: "Profit & Risk Analysis",
+  description: "Analyze profit potential and farming risk.",
+  path: "/profit-risk-analysis",
+},
     {
       icon: "💰",
       title: t.dashboard.marketPrices,

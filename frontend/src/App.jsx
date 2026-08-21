@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import CropRecommendation from "./pages/CropRecommendation";
 import YieldPrediction from "./pages/YieldPrediction";
-import HarvestPrediction from "./pages/HarvestPrediction";
+import ProfitRiskAnalysis from "./pages/ProfitRiskAnalysis";
 import MarketPrices from "./pages/MarketPrices";
 import PriceForecast from "./pages/PriceForecast";
 import Chatbot from "./pages/Chatbot";
@@ -33,11 +33,9 @@ function App() {
 />
 
 <Route
-  path="/harvest-prediction"
-  element={<HarvestPrediction />}
-
+  path="/profit-risk-analysis"
+  element={<ProfitRiskAnalysis />}
 />
-
 <Route
   path="/market-prices"
   element={<MarketPrices />}

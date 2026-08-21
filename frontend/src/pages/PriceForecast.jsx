@@ -28,8 +28,11 @@ const [error, setError] = useState("");
   setPrediction(null);
 
   try {
-    const result = await predictPrice(formData);
+    console.log("Sending to backend:", formData);
 
+const result = await predictPrice(formData);
+
+console.log("Backend response:", result);
     setPrediction({
       price: result.predicted_modal_price,
       pricePerKg: result.price_per_kg,

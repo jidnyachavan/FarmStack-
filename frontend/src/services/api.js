@@ -40,3 +40,51 @@ export const predictPrice = async (data) => {
   return await response.json();
 };
 export default API;
+export const getMarketPrices = async (filters) => {
+  const response = await fetch("http://127.0.0.1:8000/market-prices", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      commodity: filters.commodity,
+      state: filters.state,
+      district: filters.district,
+      market: filters.market,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch market prices");
+  }
+
+  return await response.json();
+};
+
+export const sendChatMessage = async (message) => {
+  try {
+    const response = await axios.post(
+      "http://127.0.0.1:8000/chat",
+      {
+        message: message,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    return response.data.reply;
+  } catch (error) {
+    console.error("FarmStack AI Error:", error);
+
+    if (error.response) {
+      console.error("Backend response:", error.response.data);
+    } else if (error.request) {
+      console.error("Backend not reachable:", error.request);
+    }
+
+    throw new Error("Could not connect to FarmStack AI");
+  }
+};
